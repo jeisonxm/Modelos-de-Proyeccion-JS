@@ -1,0 +1,77 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html{
+  font-size: 62.5%;
+  font-family: 'Roboto', sans-serif;
+}
+
+ul{
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+footer{
+  background-color: #000000df;
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.body-grid{
+  min-height: 100vh;
+  place-content: center;
+  display: grid;
+  grid-template-rows:  100px 1fr 54px;
+  grid-template-columns: 100%;
+  font-size: 1.2rem;
+  justify-items: center;
+}
+a{
+  text-decoration: none;
+  color: white;
+}
+header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  text-align: center;
+  background-color: #000000df;
+  color: white;
+}
+main{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.837);
+  color: white;
+}
+main form{
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  max-width: 340px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  gap: 5px;
+}
+main form input{
+  padding: 3px 8px;
+}
+main .respuestas-container{
+  display: flex;
+  width: 80%;
+  max-width: 340px;
+  margin: 0 auto;
+  flex-direction: column;
+  gap: 10px;
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>
+      Cacluladora de Promedios || PROMEDIO SIMPLE, MOVIL, MOVIL PONDERADO Y
+      SUAVIZADO EXPONENCIAL
+    </title>
+  </head>
+  <body>
+    <div class="body-grid">
+      <header>
+        <h1>Calcula los modelos de pronostico</h1>
+        <p>
+          Con esta pagina te ayudara a sacar el promedio simple, promedio movil,
+          promedio ponderado y el suavizado exponencial
+        </p>
+      </header>
+      <main>
+        <form action="">
+          <label for="inputNumbers"
+            >Introduce tus datos separados con coma:</label
+          >
+          <input
+            type="text"
+            id="inputNumbers"
+            placeholder="Separa tus numeros con coma"
+          />
+          <label for="inputPeriodos"
+            >Introduce los periodos para el analisis del Promedio Movil
+            Simple:</label
+          >
+          <input
+            type="number"
+            id="inputPeriodos"
+            placeholder="Periodos de P. Movil Simple"
+          />
+          <label for="inputPonderaciones"
+            >Introduce las Ponderaciones para el analisis del Promedio Movil
+            Ponderado:</label
+          >
+          <p>
+            Utilice los porcentajes en decimales y separelos por una coma, el
+            ultimo porcentaje puesto se tomara en cuenta para el numero mas
+            reciente. <br />
+            Por ejemplo para 3 periodos con ponderaciones de 0.2, 0.3 y 0.5,
+            teniendo el 0.5 para el valor mas reciente, lo que se pondria en el
+            cuadro de abajo seria: <br />
+            "0.2, 0.3, 0.5"
+          </p>
+          <input
+            type="text"
+            id="inputPonderaciones"
+            placeholder="Ponderaciones de P. Movil Simple"
+          />
+          <button type="button" onclick="calculatePronostic()">
+            Calcula los pronosticos
+          </button>
+          <button type="button" onclick="calculatePercentaje()">
+            Calcula los porcentajes de error de cada pronostico
+          </button>
+        </form>
+        <section class="respuestas-container">
+          <div class="respuesta-simple">
+            <h1>Promedio Simple</h1>
+            <p class="answer-pronostic" id="answer-simple"></p>
+            <p class="answer-percentaje" id="porcentaje-simple"></p>
+          </div>
+          <div class="respuesta-movil">
+            <h1>Promedio Movil</h1>
+            <p class="answer-pronostic" id="answer-movil"></p>
+            <p class="answer-percentaje" id="porcentaje-movil"></p>
+          </div>
+          <div class="respuesta-ponderado">
+            <h1>Promedio Ponderado</h1>
+            <p class="answer-pronostic" id="answer-ponderate"></p>
+            <p class="answer-percentaje" id="porcentaje-ponderate"></p>
+          </div>
+          <div class="respuesta-suavizado">
+            <h1>Promedio Suavizado Exponencial</h1>
+            <p class="answer-pronostic" id="answer-suavizado"></p>
+            <p class="answer-percentaje" id="porcentaje-suavizado"></p>
+          </div>
+        </section>
+      </main>
+      <footer></footer>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
