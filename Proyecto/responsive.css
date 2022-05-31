@@ -1,0 +1,7 @@
+html{
+  font-size: 80%;
+}
+main{
+  flex-direction: row;
+  padding: 5%;
+}

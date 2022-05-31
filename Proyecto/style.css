@@ -7,7 +7,9 @@ html{
   font-size: 62.5%;
   font-family: 'Roboto', sans-serif;
 }
-
+h2{
+  margin-top: 10px;
+}
 ul{
   list-style: none;
   display: flex;
@@ -22,12 +24,19 @@ footer{
   flex-direction: column;
   align-items: center;
   width: 100%;
+  
+}
+footer p{
+  font-size: 1.2rem;
+}
+footer i{
+  font-size: 1.8rem;
 }
 .body-grid{
   min-height: 100vh;
   place-content: center;
   display: grid;
-  grid-template-rows:  100px 1fr 54px;
+  grid-template-rows:  100px 1fr 80px;
   grid-template-columns: 100%;
   font-size: 1.2rem;
   justify-items: center;
@@ -54,6 +63,7 @@ main{
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.837);
   color: white;
+  padding: 30px 0;
 }
 main form{
   display: flex;
@@ -65,7 +75,11 @@ main form{
   gap: 5px;
 }
 main form input{
-  padding: 3px 8px;
+  padding: 8px 8px;
+  border-radius: 0px;
+  color: black;
+  box-shadow: 3px 3px 4px 0px rgba(0,0,0,0.63) inset;
+  margin-bottom: 10px;
 }
 main .respuestas-container{
   display: flex;
@@ -74,4 +88,61 @@ main .respuestas-container{
   margin: 0 auto;
   flex-direction: column;
   gap: 10px;
+}
+.optionsSuavizado {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+.optionsSuavizado div{
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.optionsSuavizado div label{
+  font-size: 1.3rem;
+}
+button{
+  padding: 8px;
+  background-color: rgba(0, 0, 0, 0.445);
+  color: white;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+}
+button:hover{
+  transition-duration: 400ms;
+  background-color: white;
+  color: black;
+}
+label{
+  font-style: italic;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 2px 0;
+}
+
+.respuestas-container{
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.respuestas-container p{
+  font-size: 1.3rem;
+  margin: 3px 0 5px 0;
+  padding-left: 10px;
+  line-height: 2rem;
+}
+.respuestas-container p b{
+  font-size: 1.5rem;
+  padding: 3px;
+  background-color: rgb(255, 214, 33);
+  color: rgba(0, 0, 0, 0.837) ;
+  border-radius: 8px;
+}
+.respuestas-container div{
+  border-top: 2px solid rgba(0, 0, 0, 0.116);
+  padding-top: 10px;
 }

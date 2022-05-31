@@ -6,7 +6,7 @@ Proyecto dedicado a los modelos de proyeccion basico basado en tiempo.
 
 ## Estatus
 
-### Actualmente en falta de ponerle el javascript que calcule el suavizado exponencial y mejoras en el diseno estetico de la pagina.
+### COMPLETO
 
 ## Informacion General
 
@@ -38,5 +38,13 @@ Se calcula de la siguiente forma: `(Suma de los periodos establecidos)/(cantidad
 El promedio movil ponderado le pone importancia a los periodos establecidos en el movil simple. Es decir que ciertos datos pesaran mas en el promedio y no todos los datos de ese periodo tendran el mismo porcentaje de importancia. Por lo tanto se le introduce ponderaciones a cada dato, que son porcentajes que se multiplicaran con esos datos para tratar de predecir en el tiempo estipulado.
 
 Se calcula de la siguiente forma: `sumatoria[ponderacion(n)*dato(n)]`
+
+### Suavizado Exponencial Simple
+
+El suavizado exponencial resalta por como le da peso a las demandas anteriores, dependiendo de un coeficinete establecido. En pocas palabras el peso de las demandas anteriores llega a ser exponencial, mientras que cada vez la demanda mas cercana va tomando mas peso hasta llegar a una respuesta final.
+
+Para este modelo cabe resaltar es necesario de un pronostico para empezar, de no tener se puede poner por default la demanda real para tener un error 0, junto a este se le debe incorporar el coeficiente que trabajara con la relacion demanda-pronostico, donde la llamaremos alfa.
+
+Se calcula de la siguiente forma: `alfa(demanda mas reciente) + (1 - alfa)(Pronostico mas reciente) `
 
 ---

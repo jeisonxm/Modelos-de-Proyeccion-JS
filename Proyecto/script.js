@@ -2,6 +2,8 @@
 const inputNumber = document.getElementById("inputNumbers");
 const inputPeriodos = document.getElementById("inputPeriodos");
 const Inputponderaciones = document.getElementById("inputPonderaciones");
+const inputAlfa = document.getElementById("inputAlfa");
+const inputArranque = document.getElementById("inputArranque");
 //////////////
 function calcularPorcentaje(ArrayPrincipal, ArrayPush, ArrayPromedio) {
   for (let i = 0; i < ArrayPrincipal.length; i++) {
@@ -31,6 +33,8 @@ function convertirTexto_Array(list) {
   let numbersArray = numbersList.map((number) => number - "");
   return numbersArray;
 }
+
+////////////////////////////////////////
 
 function calculatePronostic() {
   //Calculadora de promedio Simple//
@@ -85,7 +89,36 @@ function calculatePronostic() {
     "answer-ponderate",
     `El promedio movil ponderado para los numeros, con ponderaciones de ${ponderacionesArray} es de <b>${promedioPonderado}</b>`
   );
+  //Fin calculadora promedio ponderado//
+
+  //Calculadora de suaviazado exponencial
+  numbersArray = convertirTexto_Array(numbers);
+  let alfa = Number(inputAlfa.value);
+  let alfaRestante = 1 - alfa;
+  let arranque = Number(inputArranque.value);
+  let promediosSuavizadosArray = [];
+  if (arranque == 0) {
+    promediosSuavizadosArray.push(numbersArray[0]);
+  } else {
+    promediosSuavizadosArray.push(arranque);
+  }
+  for (let i = 0; i < numbersArray.length; i++) {
+    promediosSuavizadosArray.push(
+      redondear(
+        alfa * numbersArray[i] + alfaRestante * promediosSuavizadosArray[i]
+      )
+    );
+  }
+  console.log(promediosSuavizadosArray);
+  let promediosSuavizado = promediosSuavizadosArray.pop();
+  escribirEnHTML(
+    "answer-suavizado",
+    `El promedio segun el suavizado exponencial con alfa ${alfa} es de <b>${promediosSuavizado}</b>`
+  );
+  //Fin Calculadora de suaviazado exponencial
 }
+
+////                                                                                                                                                    ///////////
 
 function calculatePercentaje() {
   //Porcentaje de promedio Simple
@@ -114,7 +147,7 @@ function calculatePercentaje() {
     "porcentaje-simple",
     `El porcentaje de error del metodo de promedio simple es de <b>${
       porcentajePromedioSimple * 100
-    }</b>%`
+    }%</b>`
   );
 
   console.group("Datos del Promedio Simple");
@@ -153,7 +186,7 @@ function calculatePercentaje() {
     let porcentajePromedioMovil = promedio(porcentajePromedioMovilArray) * 100;
     escribirEnHTML(
       "porcentaje-movil",
-      `El porcentaje de error del metodo de promedio movil es de <b>${porcentajePromedioMovil}</b>%`
+      `El porcentaje de error del metodo de promedio movil es de <b>${porcentajePromedioMovil}%</b>`
     );
   }
   console.group("Datos del Promedio Movil Simple");
@@ -206,4 +239,44 @@ function calculatePercentaje() {
     promedioPonderadoDeCadaElemento
   );
   console.groupEnd();
+  /////////////////////////////////////////////////
+  numbersArray = convertirTexto_Array(numbers);
+  let alfa = Number(inputAlfa.value);
+  let alfaRestante = 1 - alfa;
+  let arranque = Number(inputArranque.value);
+  let promediosSuavizadosArray = [];
+  let porcentajeSuavizado = [];
+  if (arranque == 0) {
+    promediosSuavizadosArray.push(numbersArray[0]);
+  } else {
+    promediosSuavizadosArray.push(arranque);
+  }
+  for (let i = 0; i < numbersArray.length; i++) {
+    promediosSuavizadosArray.push(
+      redondear(
+        alfa * numbersArray[i] + alfaRestante * promediosSuavizadosArray[i]
+      )
+    );
+  }
+  calcularPorcentaje(
+    numbersArray,
+    porcentajeSuavizado,
+    promediosSuavizadosArray
+  );
+  porcentajeSuavizado.shift();
+  let porcentajeErrorSuavizado = promedio(porcentajeSuavizado);
+  escribirEnHTML(
+    "porcentaje-suavizado",
+    `El porcentaje de error del metodo suavizado exponencial es de <b>${
+      porcentajeErrorSuavizado * 100
+    }%</b>`
+  );
+
+  console.group("Datos del Suavizado Exponencial");
+  console.log(
+    "Porcentajes de error de Suavizado Exponencial",
+    porcentajeSuavizado
+  );
+  console.log("Promedios de suavizado exponencial", promediosSuavizadosArray);
+  console.groupEnd;
 }

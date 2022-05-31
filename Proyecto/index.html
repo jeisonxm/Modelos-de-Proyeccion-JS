@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="./responsive.css"
+      media="(min-width: 1024px)"
+    />
+    <script
+      src="https://kit.fontawesome.com/10b9adabac.js"
+      crossorigin="anonymous"
+    ></script>
     <title>
       Cacluladora de Promedios || PROMEDIO SIMPLE, MOVIL, MOVIL PONDERADO Y
       SUAVIZADO EXPONENCIAL
@@ -42,7 +51,7 @@
             >Introduce las Ponderaciones para el analisis del Promedio Movil
             Ponderado:</label
           >
-          <p>
+          <!-- <p>
             Utilice los porcentajes en decimales y separelos por una coma, el
             ultimo porcentaje puesto se tomara en cuenta para el numero mas
             reciente. <br />
@@ -50,17 +59,41 @@
             teniendo el 0.5 para el valor mas reciente, lo que se pondria en el
             cuadro de abajo seria: <br />
             "0.2, 0.3, 0.5"
-          </p>
+          </p> -->
           <input
             type="text"
             id="inputPonderaciones"
             placeholder="Ponderaciones de P. Movil Simple"
           />
+          <h2>Datos para el Suavizado Exponencial</h2>
+          <div class="optionsSuavizado">
+            <div class="alfa">
+              <label for="inputAlfa"
+                >Introduzca el alfa para el suavizado exponencial
+              </label>
+              <input
+                type="number"
+                id="inputAlfa"
+                placeholder="Introduzca alfa decimal"
+                step="0.1"
+              />
+            </div>
+            <div class="arranque">
+              <label for="inputArranque"
+                >Introduzca pronostico de arranque</label
+              >
+              <input
+                type="number"
+                id="inputArranque"
+                placeholder="Primer pronostico"
+              />
+            </div>
+          </div>
           <button type="button" onclick="calculatePronostic()">
             Calcula los pronosticos
           </button>
           <button type="button" onclick="calculatePercentaje()">
-            Calcula los porcentajes de error de cada pronostico
+            Calcula porcentajes de error
           </button>
         </form>
         <section class="respuestas-container">
@@ -86,7 +119,31 @@
           </div>
         </section>
       </main>
-      <footer></footer>
+      <footer>
+        <p>Made by Jeison Sang Wu Mitre</p>
+        <ul class="footer-contact">
+          <li>
+            <a href="https://twitter.com/JeisonWu"
+              ><i class="fa-brands fa-twitter"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/jeisonwu/"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+          </li>
+          <li>
+            <a href="mailto:jeisonwumitre@gmail.com "
+              ><i class="fa-solid fa-envelope"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://github.com/jeisonxm"
+              ><i class="fa-brands fa-github"></i
+            ></a>
+          </li>
+        </ul>
+      </footer>
     </div>
     <script src="./script.js"></script>
   </body>
