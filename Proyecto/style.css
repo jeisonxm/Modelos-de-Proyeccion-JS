@@ -130,6 +130,9 @@ label{
   gap: 25px;
 }
 .respuestas-container p{
+  padding: 3px;
+  background-color: rgb(255, 214, 33);
+  color: black;
   font-size: 1.3rem;
   margin: 3px 0 5px 0;
   padding-left: 10px;
@@ -138,9 +141,8 @@ label{
 .respuestas-container p b{
   font-size: 1.5rem;
   padding: 3px;
-  background-color: rgb(255, 214, 33);
-  color: rgba(0, 0, 0, 0.837) ;
-  border-radius: 8px;
+  background-color: #5C4D0C;
+  color: white;
 }
 .respuestas-container div{
   border-top: 2px solid rgba(0, 0, 0, 0.116);
